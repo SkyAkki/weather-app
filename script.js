@@ -8,11 +8,24 @@ time = document.querySelector('.date')
 temp = document.querySelector('.temp')
 let searchResult = document.querySelector('main');
 let imageResult = document.querySelector('.imageSlider');
+let gif = document.querySelector('img');
 
 function tempConverter(Kelvin) {
     return (Kelvin - 273.15).toPrecision(4) + "° C"
 }
-
+function getGif(response){
+    fetch(`https://api.giphy.com/v1/gifs/translate?api_key=y0pcNokIMqnxGhsgQBgcbBACOG11VQvk&s=${response.weather[0].description}`, {mode: 'cors'})
+    .then(function(gifObject){
+        return gifObject.json();
+    })
+    .then(function(gifObject){
+        console.log(gifObject)
+        gif.src = gifObject.data.images.original.url;
+    })
+    .catch(function(error){
+        console.log(error)
+    })
+}
 function generateOutput(response) {
     city.textContent = "City : " + response.name;
     country.textContent = "Country : " + response.sys.country
@@ -37,11 +50,12 @@ submitButton.addEventListener('click',(event) => {
         .then(function(response) {
             console.log(response);
             generateOutput(response);
+            getGif(response);
             searchResult.style.display = 'flex';
             imageResult.style.display = 'flex';
           })
         .catch(function(err){
-            console.log(err);
+            console.log(err)
         });
     }
     // event.preventDefault();
