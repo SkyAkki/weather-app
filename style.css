@@ -32,6 +32,7 @@ label{
 input{
   flex-basis: 60%;
   min-height: 30px;
+  border-radius: 5px;
 }
 .submit{
   flex-basis: 50%;
@@ -41,16 +42,17 @@ input{
 }
 /* Search City Area End*/
 .searchResult {
-    width: 50%;
-    background: rgba( 255, 255, 255, 0.25 );
-    box-shadow: 0 8px 32px 0 rgba(126, 128, 160, 0.37);
-    backdrop-filter: blur( 1px );
-    -webkit-backdrop-filter: blur( 1px );
-    border-radius: 10px;
-    border: 1px solid rgba( 255, 255, 255, 0.18 );
-    justify-self: center;
-    display: flex;
-    flex-direction: column;
+  width: 50%;
+  background: rgba( 255, 255, 255, 0.25 );
+  box-shadow: 0 8px 32px 0 rgba(126, 128, 160, 0.37);
+  backdrop-filter: blur( 1px );
+  -webkit-backdrop-filter: blur( 1px );
+  border-radius: 10px;
+  border: 1px solid rgba( 255, 255, 255, 0.18 );
+  justify-self: center;
+  /* display: flex; */
+  flex-direction: column;
+  display: none;
 }
 
 /* The switch - the box around the slider */
