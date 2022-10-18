@@ -1,18 +1,45 @@
 :root{
     /* font-size: 1vw; */
     color: rgb(196, 198, 200);
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 body {
     margin: 0px;
     display: grid;
     height: 100vh;
-    grid-template-rows: repeat(2,1fr);
-    grid-template-columns: repeat(2,1fr);
-    justify-content: center;
-    align-items: center;
+    grid-template-rows: repeat(3,1fr);
+    grid-template-columns: auto;
+    justify-items: center;
+    align-items: flex-start;
     background: linear-gradient(to bottom, #323232 0%, #3F3F3F 40%, #1C1C1C 150%), linear-gradient(to top, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.25) 200%);
     background-blend-mode: multiply;
 }
+/* Search City Area Start*/
+form{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+.search-icon{
+  width: 5%;
+  height: auto;
+}
+label{
+  font-size: 3rem;
+}
+input{
+  flex-basis: 60%;
+  min-height: 30px;
+}
+.submit{
+  flex-basis: 50%;
+  max-width: 600px;
+  border-radius: 10px;
+  font-size: 2rem;
+}
+/* Search City Area End*/
 .searchResult {
     width: 50%;
     background: rgba( 255, 255, 255, 0.25 );
@@ -81,15 +108,17 @@ body {
     transform: translateX(26px);
   }
 
+/* City Image slider */
 .imageSlider {
     /* background-color: rgb(26, 25, 25); */
     width: 100vw;
     grid-column: 1/-1;
     height: 50vh;
-    display: flex;
+    /* display: flex; */
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    display: none;
 }
 .imageSliderSub{
     width : 70%;
@@ -100,30 +129,23 @@ body {
     width: 15%;
     height: 30%;
 }
-
-  @media (max-width:600px){
-    body{
-        grid-template-columns: 1fr;
-        grid-template-rows: auto;
-        justify-content: center;
-    }
-    form{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-    .imageSlider{
-        height: 100vh;
-    }
-    form {
-        height: 50vh;
-    }
-    .searchResult {
-        height: 50vh
-    }
-    .imageSliderSub {
-        width: 70%;
-        height: 70%;
-    }
+@media (max-width:600px){
+  form{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+  .imageSlider{
+      height: 100vh;
+  }
+  form {
+      height: 50vh;
+  }
+  .searchResult {
+      height: 50vh
+  }
+  .imageSliderSub {
+      width: 70%;
+      height: 70%;
+  }
 }

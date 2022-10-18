@@ -1,6 +1,6 @@
 searchValue = document.querySelector('input')
 submitButton = document.querySelector('.submit')
-
+const d = new Date();
 city = document.querySelector('.city')
 country = document.querySelector('.country')
 time = document.querySelector('.date')
@@ -11,8 +11,6 @@ function tempConverter(Kelvin) {
 }
 
 function generateOutput(response) {
-    const d = new Date();
-
     city.textContent = "City : " + response.name;
     country.textContent = "Country : " + response.sys.country
     time.textContent = "Date : " + d.toLocaleDateString();
