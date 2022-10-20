@@ -6,6 +6,7 @@ city = document.querySelector('.city')
 country = document.querySelector('.country')
 time = document.querySelector('.date')
 temp = document.querySelector('.temp')
+let tempVar;
 let searchResult = document.querySelector('main');
 let imageResult = document.querySelector('.imageSlider');
 let gif = document.querySelector('img');
@@ -13,9 +14,10 @@ let currentIndex = 0;
 let card = document.querySelector('.card');
 let imageArray = [];
 let randomArray = [];
+let button = document.querySelector('input[type=checkbox]')
 
-function tempConverter(Kelvin) {
-    return (Kelvin - 273.15).toPrecision(4) + "° C"
+function tempConverter(Kelvin,unit) {
+    return (Kelvin - 273.15).toPrecision(4) + unit;
 }
 function getGif(response){
     fetch(`https://api.giphy.com/v1/gifs/translate?api_key=y0pcNokIMqnxGhsgQBgcbBACOG11VQvk&s=${response.weather[0].description}`, {mode: 'cors'})
@@ -32,11 +34,19 @@ function getGif(response){
     })
 }
 function generateOutput(response) {
+    tempVar = response.main.temp;
     city.textContent = "City : " + response.name;
     country.textContent = "Country : " + response.sys.country
     time.textContent = "Date : " + d.toLocaleDateString();
-    temp.textContent = "Temperature : " + tempConverter(response.main.temp);
+    temp.textContent = "Temperature : " + tempConverter(response.main.temp, "° C");
 }
+button.addEventListener('click',(e) => {
+    if(button.checked){
+        temp.textContent = "Temperature : " + tempVar + "° K";
+    }else{
+        temp.textContent = "Temperature : " + tempConverter(tempVar, "° C");
+    }
+})
 function checkInputValidity(){
     if (validityState.valueMissing) {
         searchValue.setCustomValidity('You gotta fill this out, yo!');
@@ -68,7 +78,7 @@ submitButton.addEventListener('click',(event) => {
             return response.json();
         })
         .then(function(response){
-            console.log(response);
+            //console.log(response);
             response.results.forEach((result)=>{
                 imageArray.push(result.urls.small)
             })
@@ -95,8 +105,8 @@ function slide(){
 function leftClick(){
     currentIndex -= 1;
     slide();
-    console.log(randomArray);
-    console.log(currentIndex%3)
+    //console.log(randomArray);
+    //console.log(currentIndex%3)
 }
 function rightClick(){
     currentIndex += 1;
