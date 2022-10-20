@@ -8,7 +8,7 @@ body {
   display: grid;
   height: 100vh;
   grid-template-rows: repeat(3,1fr);
-  grid-template-columns: auto;
+  grid-template-columns: repeat(2,1fr);
   justify-items: center;
   align-items: flex-start;
   background: linear-gradient(to bottom, #323232 0%, #3F3F3F 40%, #1C1C1C 150%), linear-gradient(to top, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.25) 200%);
@@ -21,6 +21,7 @@ form{
   justify-content: center;
   flex-wrap: wrap;
   width: 100%;
+  grid-column: 1/-1;
 }
 .search-icon{
   width: 5%;
@@ -53,6 +54,7 @@ input{
   /* display: flex; */
   flex-direction: column;
   display: none;
+  grid-column: 1/2;
 }
 
 /* The switch - the box around the slider */
@@ -108,6 +110,10 @@ input:checked + .slider:before {
   -webkit-transform: translateX(26px);
   -ms-transform: translateX(26px);
   transform: translateX(26px);
+}
+
+img{
+  grid-column: 2/-1;
 }
 
 /* City Image slider */
