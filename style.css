@@ -80,7 +80,7 @@ ul{
   height: 0;
 }
   
-/* The slider */
+/* The slider button */
 .slider {
   position: absolute;
   cursor: pointer;
@@ -141,9 +141,24 @@ img{
   height: 90%;
 }
 .svgArrow{
-  width: 15%;
-  height: 30%;
+  width: 50px;
+  height: 50px;
+  background-color: rgba(255, 255, 255, 0.008);
+  border-radius: 50%;
+  margin: 0 10px;
 }
+svg:hover{
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.048);
+  transform: scale(1.1);
+}
+.bottomDots{
+  flex-basis: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* ----------------------------- Media Queries ----------------------------- */
 @media (max-width:600px){
   form{
     display: flex;
