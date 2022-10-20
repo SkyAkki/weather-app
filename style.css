@@ -119,8 +119,9 @@ input:checked + .slider:before {
   transform: translateX(26px);
 }
 
-img{
+.gif{
   grid-column: 2/-1;
+  max-height:30vh;
 }
 
 /* City Image slider */
@@ -136,9 +137,16 @@ img{
   display: none;
 }
 .imageSliderSub{
-  width : 70%;
+  width : 50%;
   background-color: #3F3F3F;
   height: 90%;
+  position: relative;
+}
+.card{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 1;
 }
 .svgArrow{
   width: 50px;
